@@ -3,9 +3,7 @@ package auth
 import (
 	"errors"
 	"net/http"
-	"reflect"
 	"strings"
-	"testing"
 )
 
 var ErrNoAuthHeaderIncluded = errors.New("no authorization header included")
@@ -22,12 +20,4 @@ func GetAPIKey(headers http.Header) (string, error) {
 	}
 
 	return splitAuth[1], nil
-}
-
-func TestGetAPIKey(t *testing.T) {
-	got, _ := GetAPIKey(http.Header{"Authorization": []string{"ApiKey 12345"}})
-	want := "12345"
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("GetAPIKey() = %v, want %v", got, want)
-	}
 }
