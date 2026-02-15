@@ -16,7 +16,7 @@ func TestGetAPIKey_TableDriven(t *testing.T) {
 		{
 			name:    "valid api key",
 			headers: http.Header{"Authorization": []string{"ApiKey 12345"}},
-			wantKey: "123456",
+			wantKey: "12345",
 			wantErr: "",
 		},
 		{
